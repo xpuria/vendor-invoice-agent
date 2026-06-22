@@ -1,0 +1,7 @@
+# Provider-agnostic model tiers (PydanticAI model ids). Swap values, no code changes.
+extraction:
+  primary:    openai-chat:gpt-4.1-mini  # clean-text path + supplier-match; strong, low cost
+  fallback:   openai-chat:gpt-4.1       # vision-capable, for scans / empty text layer
+  escalation: openai-chat:gpt-4.1       # on low confidence / schema failure
+thresholds:
+  confidence_escalate: 0.7

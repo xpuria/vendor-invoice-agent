@@ -1,0 +1,20 @@
+# python
+__pycache__/
+*.py[cod]
+.venv/
+*.egg-info/
+.pytest_cache/
+.cache/
+
+# secrets
+.env
+
+# private materials — provided invoices, supplier list, the brief, and runtime state.
+# kept out of the public repo; the reviewer already has these.
+data/
+inputs/
+# hand-labelled expected values from the real invoices (private data)
+eval/golden_set.json
+
+# os
+.DS_Store

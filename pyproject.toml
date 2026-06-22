@@ -1,0 +1,35 @@
+[project]
+name = "odoo-invoice-agent"
+version = "0.1.0"
+description = "Automated Odoo vendor-bill agent: ingest invoice PDFs, extract fields with an LLM, validate against finance rules, auto-post clean approved bills and flag the rest for human review."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "pydantic>=2.7",
+    "pymupdf4llm>=0.0.17",
+    "openpyxl>=3.1",
+    "pyyaml>=6.0",
+    "python-dotenv>=1.0",
+    "pydantic-ai-slim[openai]>=1.107.0",
+]
+
+# Optional, install only when needed:
+#   uv sync --extra adk        -> Google ADK agent wrapper (M5)
+#   uv sync --extra dashboard  -> Streamlit human-review surface (M7)
+[project.optional-dependencies]
+adk = ["google-adk[extensions]>=2.3"]
+dashboard = ["streamlit>=1.35"]
+
+[dependency-groups]
+dev = ["pytest>=8.0"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.hatch.build.targets.wheel]
+packages = ["app"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

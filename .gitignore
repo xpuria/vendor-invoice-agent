@@ -18,3 +18,8 @@ eval/golden_set.json
 
 # os
 .DS_Store
+
+# personal interview notes (never commit)
+PREP.md
+QA.md
+STUDY.md
